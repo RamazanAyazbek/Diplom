@@ -39,9 +39,6 @@ class LoginView(View):
                 return redirect('account_login')
         return render(request,'./templates/login.html')
 
-
-
-
 class LogoutView(View):
 
     def get(self,request):
