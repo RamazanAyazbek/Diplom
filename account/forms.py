@@ -1,5 +1,6 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from .models import Post
 from django import forms
 
 class UserForm(UserCreationForm):
@@ -7,7 +8,7 @@ class UserForm(UserCreationForm):
     username = forms.CharField(widget=forms.TextInput(
         attrs={
             'type': 'username',
-            'placeholder':('Username')
+            'placeholder':('Username'),
         }
     ))
     first_name = forms.CharField(widget=forms.TextInput(
@@ -50,3 +51,11 @@ class UserForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['username','email','first_name','last_name','password1','password2','groups']
+class PostForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ["title", "description"]
+class UpdatePostForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ["title", "description"]

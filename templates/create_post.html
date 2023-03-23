@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags%}
+{% block content %}
+<div class="container">
+    <h1>Жаңадан жоба бастаңыз</h1>
+    <form method="post">
+    {% csrf_token %} {{form | crispy}}
+    <input type="file">
+    <button type="submit" class="btn btn-success">Project</button>
+</form> 
+</div>
+
+{% endblock %}

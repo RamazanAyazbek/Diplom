@@ -1,31 +1,275 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled">Disabled</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-          </li>
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Lora:ital@1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+<link rel="stylesheet" href="{% static 'css/slick.css' %}">
+<link rel="stylesheet" href="{% static 'css/jquery.formstyler.theme.css' %}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
+<link rel="stylesheet" type="text/css" href="jquery.fancybox.min.css">
+<link rel="stylesheet" href="{% static 'css/fonts.css'%}">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/normalize.css'%}">
+<link href="https://cdn.jsdelivr.net/npm/jquery-form-styler@2.0.2/dist/jquery.formstyler.min.css
+" rel="stylesheet">
+<div class="header_main">
+    <video autoplay muted loop id="myVideo">
+        <source src="Media/y2mate.com - high tech digital earth background 4 k KWC32SJ_1080p.mp4" type="video/mp4">
+    </video>
+    <header>
+        <h2 class="logo">Q<img src="https://i.postimg.cc/FHW3Lsf0/Group-4287-1.png" />ZAQSTAN</h2>
+        <ul>
+            <li class="header_btn"><a id="rss_alert" style="text-decoration: none; color:white"
+                    href="/projects">Projects</a></li>
+            <li class="header_btn"><a style="text-decoration: none; color:white"
+                    href="/create-project">Create-project</a></li>
+                    <li class="header_btn"><a style="text-decoration: none; color:white"
+                        href="#divModal">Rss</a></li>
+            <li class="header_btn">Logged as {{user.username}}</li>
+            <a href="/login">
+                <li class="header_btn">Logout</li>
+            </a>
+            <div class="rss_modal">
+                
+                <div id="divModal" class="windowModal">
+                    <div>
+                        <a href="#close" title="Close" class="close">X</a>
+                        <h1>Жаңартулар </h1>
+                        <p>{{user.username}}  проектке жаңартулар енгізді</p>
+                        <p>Жаңартулар title немесе description бөлімдерінде болуы мүмкін</p>
+                    </div>
+                </div>
+            </div>
+            <!-- style for modal window -->
+           
+            <script>
+                let btn_rss = document.getElementById('rss_alert')
+                btn_rss.addEventListener('click', () => {
+                    alert('RSS хабарландыруды тексеріп өтіңіз')
+                })
+            </script>
         </ul>
-      </div>
+    </header>
+    <div>
+        <div class="title">
+            Git <span>Code</span>
+        </div>
+        <div class="text1">
+            <span>Welcome to our platform</span>
+        </div>
+        <div class="text1 text2">
+            <span>Write code with your team. GOOD LUCK !</span>
+        </div>
     </div>
-  </nav>
+</div>
+
+<!-- SECTION -->
+<section class="news">
+    <div class="container">
+        <div class="news__top">
+            <div class="news__title-box">
+                <div class="news__title">
+                    Offer for you
+                </div>
+                <div class="news__text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus molestiae nihil minima odio
+                    tempora harum modi error? Natus, tempora deserunt!
+                </div>
+            </div>
+            <div class="news__btn">
+                <a href="#">
+                    Go to projects
+                </a>
+            </div>
+        </div>
+        <div class="news__inner">
+            <div class="news__slider">
+                <div class="news__slider-inner slick-initialized slick-slider">
+                    <!-- <button type="button" class="slick-btn slick-prev slick-arrow" aria-disabled="false" style=""></button> -->
+                    <div class="slick-list draggable">
+                        <div class="slick-track"
+                            style="opacity: 1; width: 1350px; transform: translate3d(-450px, 0px, 0px);">
+                            <div class="news__slider-item slick-slide slick-current slick-active" data-slick-index="1"
+                                aria-hidden="false" tabindex="0" style="width: 450px;">
+                                <div class="news__slider-title">
+                                    Projectti basqaru adistemelri
+                                </div>
+                                <div class="news__slider-text">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. At id, adipisci repellendus
+                                    nam, alias, quasi possimus beatae ratione inventore pariatur provident consectetur
+                                    unde excepturi modi perferendis. Eum tempore repudiandae molestiae, officia
+                                    quibusdam harum iusto voluptatibus non exercitationem reiciendis aliquid
+                                    necessitatibus accusantium, vero sunt officiis eligendi. Veniam quis cupiditate
+                                    possimus commodi.
+                                </div>
+                                <div class="news__slider-author">
+                                    Ayazbek Ramazan, founder webproject of GitCode
+                                </div>
+                            </div>
+                            <div class="news__slider-item slick-slide" data-slick-index="2" aria-hidden="true"
+                                tabindex="-1" style="width: 450px;">
+                                <div class="news__slider-title">
+                                    Projectti basqaru adistemelri
+                                </div>
+                                <div class="news__slider-text">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci commodi cumque vel
+                                    similique soluta harum at cupiditate rerum hic! Quis ipsam provident, praesentium
+                                    porro totam dolores quasi exercitationem aspernatur sequi saepe quos, expedita
+                                    facere doloremque aliquam quo laboriosam deleniti vitae. Consequuntur temporibus
+                                    iure voluptate vel dignissimos quod exercitationem accusamus doloribus.
+                                </div>
+                                <div class="news__slider-author">
+                                    Ayazbek Ramazan, founder webproject of GitCode
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- <button type="button" class="slick-btn slick-next slick-arrow" style="" aria-disabled="false"></button> -->
+                </div>
+            </div>
+            <a href="#" class="news__blog">
+                <div class="news__images">
+                    <img class="news__img" src="{% static 'img/news-1.jpg' %}" alt="">
+                    <div class="news__date">03.04</div>
+                </div>
+                <div class="news__blog-title">
+                    Developers
+                </div>
+                <div class="news__blog-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ratione, magni nihil molestias
+                    placeat architecto illo vitae cum? Non quos, nostrum est officia officiis obcaecati.
+                </div>
+            </a>
+            <a href="#" class="news__blog">
+                <div class="news__images">
+                    <img class="news__img" src="{%  static 'img/news-2.jpg'  %}" alt="">
+                    <div class="news__date">03.04</div>
+                </div>
+                <div class="news__blog-title">
+                    Team
+                </div>
+                <div class="news__blog-text">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod qui rem quia non ipsam, quisquam
+                    nesciunt veniam cumque, quaerat, nostrum laborum omnis et. Est, eius.
+                </div>
+            </a>
+
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <p>Projects</p>
+        <ul class="footer_ul">
+            <li><a href="#">Back-end</a></li>
+            <li><a href="#">Front-end</a></li>
+            <li><a href="#">Android</a></li>
+            <li><a href="#">iOS</a></li>
+            <li><a href="#">Machine learning</a></li>
+            <li><a href="#">Data science</a></li>
+        </ul>
+        <div class="social_media">
+            <ul class="text_year">
+
+                <li class="text_cookie">©2023 Ayazbek R. All Rights Reserved. Privacy Policy & Cookies Policy.</li>
+                <li class="GitCode">GitCode</li>
+            </ul>
+            <div class="rounded-social-buttons place_top">
+                <a class="social-button facebook" href="https://www.facebook.com/" target="_blank"><i
+                        class="fab fa-facebook-f"></i></a>
+                <a class="social-button twitter" href="https://www.twitter.com/" target="_blank"><i
+                        class="fab fa-twitter"></i></a>
+                <a class="social-button linkedin" href="https://www.linkedin.com/" target="_blank"><i
+                        class="fab fa-linkedin"></i></a>
+                <a class="social-button youtube" href="https://www.youtube.com/" target="_blank"><i
+                        class="fab fa-youtube"></i></a>
+                <a class="social-button instagram" href="https://www.instagram.com/" target="_blank"><i
+                        class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+</footer>
+
+
+
+<style>
+    .windowModal {
+        position: fixed;
+        font-family: Arial, Helvetica, sans-serif;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.8);
+        z-index: 99999;
+        opacity: 0;
+        -webkit-transition: opacity 400ms ease-in;
+        -moz-transition: opacity 400ms ease-in;
+        transition: opacity 400ms ease-in;
+        pointer-events: none;
+    }
+
+    .windowModal:target {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .windowModal>div {
+        width: 400px;
+        position: relative;
+        margin: 10% auto;
+        padding: 5px 20px 13px 20px;
+        border-radius: 10px;
+        background: #fff;
+        background: -moz-linear-gradient(#fff, #999);
+        background: -webkit-linear-gradient(#fff, #999);
+        background: -o-linear-gradient(#fff, #999);
+    }
+
+    .close {
+        background: #606061;
+        color: #FFFFFF;
+        line-height: 25px;
+        position: absolute;
+        right: -12px;
+        text-align: center;
+        top: -10px;
+        width: 24px;
+        text-decoration: none;
+        font-weight: bold;
+        -webkit-border-radius: 12px;
+        -moz-border-radius: 12px;
+        border-radius: 12px;
+        -moz-box-shadow: 1px 1px 3px #000;
+        -webkit-box-shadow: 1px 1px 3px #000;
+        box-shadow: 1px 1px 3px #000;
+    }
+
+    .close:hover {
+        background: #00d9ff;
+    }
+</style>
+
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"
+    integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe"
+    crossorigin="anonymous"></script>
+<script src="{% static 'js/jquery.formstyler.min.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-form-styler@2.0.2/dist/jquery.formstyler.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+<!-- <script src="{% static 'js/script.js' %}"></script> -->
+<!-- <script src="{% static 'js/slick.min.js' %}"></script> -->
 {% endblock %}
