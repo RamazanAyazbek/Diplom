@@ -5,10 +5,9 @@
 <div class="container">
    {% for post in posts %}
 <ul>
-    <li><a href="{% url 'project_view' post.pk %}">{{post.title}}</a></li>
+    <li><a href="{% url 'commit_project' post.pk %}">{{post.title}}</a></li>
 </ul>
 {% endfor %} 
 </div>
-
 {% endblock %}
 
