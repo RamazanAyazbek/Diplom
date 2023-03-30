@@ -13,18 +13,27 @@ class Post(models.Model):
         return self.title +"\n" +  self.description + "\n" + self.version
     def get_absolute_url(self):
         return reverse('project_view', kwargs={"pk": self.pk})
+
     def save(self, *args, **kwargs):
-        # check if the name already exists
-        if self.pk is None and Post.objects.filter(title=self.title).exists():
-            # if creating a new record and name already exists, raise an error
-            raise ValidationError("Title must be unique")
-        elif self.pk is not None:
-            # if updating an existing record, save a new version
-            original = Post.objects.get(pk=self.pk)
-            if original.title != self.title or original.description != self.description:
-                self.pk = None
-                self.version = original.version + 1 
+        # Check if this is a new post or an existing one
+        if self.pk:
+            # If this is an existing post, increment the version number
+            old_post = Post.objects.get(pk=self.pk)
+            if old_post.version == self.version:
+                self.version += 1
         super(Post, self).save(*args, **kwargs)
+    # def save(self, *args, **kwargs):
+        
+    #     if self.pk is None and Post.objects.filter(title=self.title).exists():
+    #         # if creating a new record and name already exists, raise an error
+    #         raise ValidationError("Title must be unique")
+    #     elif self.pk is not None:
+    #         # if updating an existing record, save a new version
+    #         original = Post.objects.get(pk=self.pk)
+    #         if original.title != self.title or original.description != self.description:
+    #             self.pk = None
+    #             self.version = original.version + 1 
+    #     super(Post, self).save(*args, **kwargs)
 
 
 
