@@ -2,12 +2,23 @@
 {% block title %}Update{% endblock%}
 {% load crispy_forms_tags%}
 {% block content %}
-<div class="container">
+<!-- {% comment %} <div class="container">
     <h1>Update</h1>
     <form method="post">
     {% csrf_token %} {{form | crispy}}
     <button type="submit" class="btn btn-success">Update</button>
 </form> 
+</div> {% endcomment %} -->
+
+
+<div class="container">
+    <h1>Update Post</h1>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Update Post</button>
+</form>
 </div>
+
 
 {% endblock %}

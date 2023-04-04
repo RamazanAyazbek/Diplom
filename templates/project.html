@@ -2,38 +2,71 @@
 
 {% block content %}
 <div class="container">
-<h1>Projects</h1>
-<style>
-.mt-2 {
-    margin-top: 2.5rem!important;
-}
-</style>
+    <h1>Projects</h1>
+    <style>
+        .mt-2 {
+            margin-top: 2.5rem !important;
+        }
+    </style>
 
 
-<div class="card mt-2 down-div">
-<div class="card-header"><strong>@{{post.author.username}}</strong></div>
-<div class="card-body d-flex flex-row justify-content-between">
-    <div>
-      <h5 class="card-title">{{post.title}}</h5>
-      <p>{{post.description}}</p>
-     <p>Version {{post.version}}</p>
+    <div class="card mt-2 down-div">
+        <div class="card-header"><strong>@{{post.author.username}}</strong></div>
+        <div class="card-body d-flex flex-row justify-content-between">
+            <div>
+                <h5 class="card-title">{{post.title}}</h5>
+                <p>{{post.description}}</p>
+
+            </div>
+            <div>
+                {% if user == post.author %}
+                <small><a class="btn btn-dark" href="{% url 'delete_project' post.pk %}">Delete</a></small>
+                <small><a class="btn btn-success" href="{% url 'update_post' post.pk %}">Update</a></small>
+                {% endif %}
+
+            </div>
+        </div>
+
+        <div class="card-footer text-muted">
+            {{post.created_at}}
+        </div>
+        <div class="card-footer text-muted">
+            <span>Updated :</span> {{post.updated_at}}
+        </div>
     </div>
-    <div>
-        {% if user == post.author %}
-        <small><a class="btn btn-dark" href="{% url 'delete_project' post.pk %}">Delete</a></small>
-        <small><a class="btn btn-success" href="{% url 'change_project' post.pk %}">Update</a></small>  
-        {% endif %}
-        
+
+</div>
+<hr>
+
+{% for version in versions %}
+<div class="container">
+    <h3>Version {{ version.version_number }}</h3>
+    <div class="card mt-2 down-div">
+        <div class="card-header"><strong>@{{post.author.username}}</strong></div>
+        <div class="card-body d-flex flex-row justify-content-between">
+            <div>
+                {% with i=0 %}
+              
+                <p>{{version.description}}</p>
+               {% endwith %}
+            </div>
+            <div>
+                {% if user == post.author %}
+                <small><a class="btn btn-dark" href="{% url 'delete_project' post.pk %}">Delete</a></small>
+                <small><a class="btn btn-success" href="{% url 'update_post' post.pk %}">Update</a></small>
+                {% endif %}
+
+            </div>
+        </div>
+
+        <div class="card-footer text-muted">
+            {{post.created_at}}
+        </div>
+        <div class="card-footer text-muted">
+            <span>Updated :</span> {{post.updated_at}}
+        </div>
     </div>
 </div>
 
-<div class="card-footer text-muted">
-    {{post.created_at}}
-</div>
-<div class="card-footer text-muted">
-   <span>Updated :</span> {{post.updated_at}}
-</div>
-</div>
-
-</div>
+{% endfor %}
 {% endblock %}

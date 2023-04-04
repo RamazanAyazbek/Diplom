@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{{ post.title }} - Historical Versions</h1>
+  {% if history %}
+  <h1>There are {{ history.count }} historical versions</h1>
+{% else %}
+  <h1>There are no historical versions</h1>
+{% endif %}
+  <ul>
+  {% for version in history %}
+    <li><a href="{% url 'project_view' version.post.pk %}?version={{ version.pk }}">{{ version.timestamp }}</a></li>
+  {% endfor %}
+  </ul>
+{% endblock %}

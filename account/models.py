@@ -8,32 +8,23 @@ class Post(models.Model):
     description = models.TextField()
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateTimeField(auto_now=True)
-    version = models.IntegerField(default=1)
     def __str__(self):
-        return self.title +"\n" +  self.description + "\n" + self.version
-    def get_absolute_url(self):
-        return reverse('project_view', kwargs={"pk": self.pk})
+        return self.title +"\n" +  self.description + "\n"
 
-    def save(self, *args, **kwargs):
-        # Check if this is a new post or an existing one
-        if self.pk:
-            # If this is an existing post, increment the version number
-            old_post = Post.objects.get(pk=self.pk)
-            if old_post.version == self.version:
-                self.version += 1
-        super(Post, self).save(*args, **kwargs)
-    # def save(self, *args, **kwargs):
-        
-    #     if self.pk is None and Post.objects.filter(title=self.title).exists():
-    #         # if creating a new record and name already exists, raise an error
-    #         raise ValidationError("Title must be unique")
-    #     elif self.pk is not None:
-    #         # if updating an existing record, save a new version
-    #         original = Post.objects.get(pk=self.pk)
-    #         if original.title != self.title or original.description != self.description:
-    #             self.pk = None
-    #             self.version = original.version + 1 
-    #     super(Post, self).save(*args, **kwargs)
+class Version(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE,related_name='versions')
+    version_number = models.IntegerField()
+    description = models.TextField()
+    title = models.CharField(max_length=200, default='Untitled')
+    updated_at=models.DateTimeField(auto_now=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-timestamp']
+
+    def __str__(self):
+        return f"{self.post.title} - Version {self.version_number}"
+
 
 
 
