@@ -1,13 +1,19 @@
 {% extends 'base.html' %}
+{% load static %}
+
 {% block content %}
+<link rel="stylesheet" href="{% static 'css/projects.css'%}">
 <div class="container">
-<h1>Projects</h1>
-<div class="container">
-   {% for post in posts %}
-<ul>
-    <li><a href="{% url 'project_view' post.pk %}">{{post.title}}</a></li>
-</ul>
-{% endfor %} 
+    <nav class="vertical-nav">
+        <h1>Projects</h1>
+        
+            {% for post in posts %}
+            <ul>
+                <li><a href="{% url 'project_view' post.id %}">{{post.title}}</a></li>
+            </ul>
+            {% endfor %}
+        
+        {% endblock %}
+    </nav>
 </div>
-{% endblock %}
 

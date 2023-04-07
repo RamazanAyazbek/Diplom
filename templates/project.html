@@ -46,14 +46,13 @@
         <div class="card-body d-flex flex-row justify-content-between">
             <div>
                 {% with i=0 %}
-              
                 <p>{{version.description}}</p>
                {% endwith %}
             </div>
             <div>
                 {% if user == post.author %}
-                <small><a class="btn btn-dark" href="{% url 'delete_project' post.pk %}">Delete</a></small>
-                <small><a class="btn btn-success" href="{% url 'update_post' post.pk %}">Update</a></small>
+                <small><a class="btn btn-dark" href="{% url 'delete_project' post.id %}">Deleterrr</a></small>
+                <small><a class="btn btn-success" href="{% url 'update_post' post.id %}">Update</a></small>
                 {% endif %}
 
             </div>

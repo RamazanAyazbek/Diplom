@@ -5,7 +5,7 @@
     <h1>Жаңадан жоба бастаңыз</h1>
     <form method="post">
     {% csrf_token %} {{form | crispy}}
-    <input type="file">
+    {% comment %} <input type="file"> {% endcomment %}
     <button type="submit" class="btn btn-success">Project</button>
 </form> 
 </div>

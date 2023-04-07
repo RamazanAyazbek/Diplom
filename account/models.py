@@ -10,6 +10,9 @@ class Post(models.Model):
     updated_at=models.DateTimeField(auto_now=True)
     def __str__(self):
         return self.title +"\n" +  self.description + "\n"
+    def get_absolute_url(self):
+        # return reverse('project_view', args=[str(self.id)])
+        return reverse('update_post', kwargs={"id" : str(self.id)})
 
 class Version(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE,related_name='versions')

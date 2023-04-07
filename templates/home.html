@@ -26,11 +26,11 @@
         <h2 class="logo">Q<img src="https://i.postimg.cc/FHW3Lsf0/Group-4287-1.png" />ZAQSTAN</h2>
         <ul>
             <li class="header_btn"><a id="rss_alert" style="text-decoration: none; color:white"
-                    href="/projects">Projects</a></li>
+                    href="{% url 'projects' %}">Projects</a></li>
             <li class="header_btn"><a style="text-decoration: none; color:white"
                     href="/create-project">Create-project</a></li>
                     <li class="header_btn"><a style="text-decoration: none; color:white"
-                        href="#divModal">Rss</a></li>
+                        href="{% url 'rss_feed' %}">Rss</a></li>
             <li class="header_btn">Logged as {{user.username}}</li>
             <a href="/login">
                 <li class="header_btn">Logout</li>

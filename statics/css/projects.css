@@ -1,0 +1,55 @@
+.vertical-nav {
+
+    background-color: aliceblue;
+
+    width: 145vh;
+
+    height: 95vh;
+
+    padding-left: 25px;
+
+    padding-top: 20px;
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+.vertical-nav h1 {
+
+    margin-bottom: 20px;
+
+    color: blue;
+
+}
+
+.vertical-nav ul {
+
+    list-style: none;
+
+}
+.vertical-nav ul li a:hover{
+    transition: 900ms;
+    background: rgb(118, 220, 212);
+}
+
+.vertical-nav ul li a {
+
+    text-decoration: none;
+
+    display: block;
+
+    width: 250px;
+
+    background: white;
+
+    color: black;
+
+    box-shadow: 2px 2px 2px cadetblue;
+
+    border-radius: 8px;
+
+    margin: 5px;
+
+    padding: 10px;
+
+}
