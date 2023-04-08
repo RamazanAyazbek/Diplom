@@ -54,8 +54,27 @@ class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ["title", "description"]
+        
+
+    # def __init__(self, *args, **kwargs):
+    #     super().__init__(*args, **kwargs)
+    #     for field in iter(self.fields):
+    #         self.fields[field].widget.attrs.update({
+    #             'class': 'form-control'
+    #     })
+    # def __init__(self, *args, **kwargs):
+    #     super(PostForm(), self).__init__(*args, **kwargs)
+    #     self.fields['title'].widget.attrs\
+    #         .update({
+    #             'placeholder': 'Name',
+    #             'class': 'input-calss_name'
+    #         })
 class UpdatePostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ["title", "description"]
+        widgets={
+            'title': forms.TextInput(attrs={'class':'form-control', "placeholder":'this is title input'}),
+            'description': forms.Textarea(attrs={'class':'form-control'})
+        }
     

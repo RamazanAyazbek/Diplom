@@ -101,6 +101,7 @@ def update_post(request, id):
         version_number = post.versions.count() + 1
         post_version = Version(post=post,version_number=version_number, description=post.description)
         post_version.save()
+        # form_class=Post
         form = UpdatePostForm(request.POST, instance=post)
         if form.is_valid():
             form.save()

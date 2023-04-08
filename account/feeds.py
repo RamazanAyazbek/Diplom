@@ -19,4 +19,4 @@ class LatestPostsFeed(Feed):
         return item.title
     def item_description(self, item):
         return item.description
-  
+#   https://simpleisbetterthancomplex.com/feed.xml 
