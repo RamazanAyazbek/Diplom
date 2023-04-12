@@ -18,7 +18,15 @@
         {% endfor %}
         {% endif %}
     </div>
+    <a class="back_home" href="{% url 'home' %}">Home</a>
     {% block content %}
     {% endblock %}
 </body>
+<style>
+    .back_home{
+        text-decoration: none;
+        border:2px solid black; 
+        border-radius: 5px;
+    }
+</style>
 </html>

@@ -27,6 +27,8 @@
         <ul>
             <li class="header_btn"><a id="rss_alert" style="text-decoration: none; color:white"
                     href="{% url 'projects' %}">Projects</a></li>
+            <li class="header_btn"><a  style="text-decoration: none; color:white"
+                        href="{% url 'users' %}">Users</a></li>
             <li class="header_btn"><a style="text-decoration: none; color:white"
                     href="/create-project">Create-project</a></li>
                     <li class="header_btn"><a style="text-decoration: none; color:white"
@@ -48,12 +50,7 @@
             </div>
             <!-- style for modal window -->
            
-            <script>
-                let btn_rss = document.getElementById('rss_alert')
-                btn_rss.addEventListener('click', () => {
-                    alert('RSS хабарландыруды тексеріп өтіңіз')
-                })
-            </script>
+
         </ul>
     </header>
     <div>

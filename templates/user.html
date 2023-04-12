@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/projects.css' %}">
+<div class="container">
+
+<nav class="vertical-nav">
+    <h1>Users</h1>
+    
+        {% for user in users %}
+        <ul>
+            <li><a href="#">@{{user.username}}</a></li>
+        </ul>
+        {% endfor %}
+    
+   
+</nav>
+</div>
+{% endblock %}

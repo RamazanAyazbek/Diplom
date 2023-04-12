@@ -4,11 +4,12 @@
 
     width: 145vh;
 
-    height: 95vh;
+    /* height: 95vh; */
 
     padding-left: 25px;
 
     padding-top: 20px;
+    padding-bottom: 20px;
 
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 
