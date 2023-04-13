@@ -35,8 +35,7 @@ class LoginView(View):
             if form.is_valid():
                 user = form.save()
                 selected_group = request.POST.get("groups")
-                group = Group.objects.get(name=selected_group)
-                user.groups.add(group)
+            
                 messages.success(request,'Account has been created succesfully')
                 return redirect('account_login')
             else:
@@ -54,11 +53,13 @@ class LogoutView(View):
 @method_decorator(login_required(login_url='login/'),name="dispatch")
 class HomeView(View):
     def get(self,request):
-        if self.request.user.groups.filter(name='M').exists():
-            return render(request,'./templates/home.html')
-        else:
-            messages.info(request,'You are not authorized to access this page.')
-            return redirect('account_login')
+        return render(request,'./templates/home.html')
+    # def get(self,request):
+    #     if self.request.user.groups.filter(name='M').exists():
+    #         return render(request,'./templates/home.html')
+    #     else:
+    #         messages.info(request,'You are not authorized to access this page.')
+    #         return redirect('account_login')
 # @method_decorator(login_required(login_url='login/'),name="dispatch")
 def create_post(request):
     if request.method =="POST":

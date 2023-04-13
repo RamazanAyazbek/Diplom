@@ -2,6 +2,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .models import Post
 from django import forms
+from django.contrib import admin
+from django.apps import apps
 
 class UserForm(UserCreationForm):
     
@@ -41,12 +43,12 @@ class UserForm(UserCreationForm):
             'placeholder':'Repeat Password'
         }
     ))
-    group_choices = (
-        ('M','Manager'),
-        ('U','User'),
-        ('C','Customer'),   
-    )
-    groups = forms.ChoiceField(choices=group_choices)
+    # group_choices = (
+    #     ('M','Manager'),
+    #     ('U','User'),
+    #     ('C','Customer'),   
+    # )
+    # groups = forms.ChoiceField(choices=group_choices)
     class Meta:
         model = User
         fields = ['username','email','first_name','last_name','password1','password2','groups']
@@ -77,4 +79,7 @@ class UpdatePostForm(forms.ModelForm):
             'title': forms.TextInput(attrs={'class':'form-control', "placeholder":'this is title input'}),
             'description': forms.Textarea(attrs={'class':'form-control'})
         }
-    
+# class PostAdmin(admin.ModelAdmin):
+#     form = PostForm
+
+# admin.site.register(UserForm,)
