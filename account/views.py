@@ -66,8 +66,10 @@ def create_post(request):
         form = PostForm(request.POST)
         email="ramazan.ayazbek.kz@gmail.com"
         message="Created new post"
+        name_user=request.user 
+        letter=str(name_user)+" created by"
         send_mail(
-        'Aibol created new project', 
+        letter,
         message, 
         'settings.EMAIL_HOST_USER',
         [email])
@@ -121,9 +123,11 @@ def update_post(request, id):
     if request.method == 'POST':
         message=request.POST["message"]
         email=request.POST["email"]
+        name_user=request.user
+        letter=str(name_user) + ' Project changed from Maks'
         # email="ramazan.ayazbek.kz@gmail.com"
         send_mail(
-        'Project changed from Maks', 
+        letter, 
         message, 
         'settings.EMAIL_HOST_USER',
         [email])
