@@ -51,7 +51,7 @@
             </div>
             <div>
                 {% if user == post.author %}
-                <small><a class="btn btn-dark" href="{% url 'delete_project' post.id %}">Deleterrr</a></small>
+                <small><a class="btn btn-dark" href="{% url 'delete_project' post.id %}">Delete</a></small>
                 <small><a class="btn btn-success" href="{% url 'update_post' post.id %}">Update</a></small>
                 {% endif %}
 

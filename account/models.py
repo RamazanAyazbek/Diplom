@@ -3,7 +3,6 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 class Post_create(models.Model):
     title=models.CharField(max_length=200)
-    # code_window=models.
 class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)

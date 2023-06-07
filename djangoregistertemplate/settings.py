@@ -26,12 +26,24 @@ SECRET_KEY = 'django-insecure-+87o1lbm&d_zbgv8lpq5nolprgtcg8t6++p9nsty@%+1lmj&f6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_HOST_USER = 'maksplank351@gmail.com'
+# EMAIL_HOST_PASSWORD = 'fajeyeggzhwcajrt'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+
+
+
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'maksplank351@gmail.com'
-EMAIL_HOST_PASSWORD = 'fajeyeggzhwcajrt'
+EMAIL_HOST_USER = 'ramazan.aitimovkz@gmail.com'
+EMAIL_HOST_PASSWORD = 'cpbagysophmnkzev'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+
 
 ALLOWED_HOSTS = []
 
@@ -49,7 +61,6 @@ INSTALLED_APPS = [
     'account.apps.AccountConfig',
     'crispy_forms',
     'crispy_bootstrap5',
-    
 ]
 
 MIDDLEWARE = [
@@ -90,12 +101,22 @@ WSGI_APPLICATION = 'djangoregistertemplate.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'seconddb',
+#         'USER':'Ramazan',
+#         'PASSWORD':'12345',
+#         'HOST':'localhost',
+#         'PORT':'5432'
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'gitprojects',
-        'USER':'Ramazan',
-        'PASSWORD':'12345',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        # 'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -140,6 +161,12 @@ STATIC_URL = '/static/'
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
 CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+
+
+# CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+# CRISPY_TEMPLATE_PACK = "bootstrap5"
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'statics')
     ]

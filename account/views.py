@@ -14,7 +14,6 @@ from django.contrib.auth import get_user_model
 from django.core.mail import send_mail
 from django.conf import settings
 class LoginView(View):
-
     def get(self,request):
         form = UserForm()
         if "sign-in" in request.GET:
@@ -35,7 +34,6 @@ class LoginView(View):
             if form.is_valid():
                 user = form.save()
                 selected_group = request.POST.get("groups")
-            
                 messages.success(request,'Account has been created succesfully')
                 return redirect('account_login')
             else:
@@ -121,8 +119,10 @@ def update_post(request, id):
     post = get_object_or_404(Post, id=id)
 
     if request.method == 'POST':
+        # email
         message=request.POST["message"]
         email=request.POST["email"]
+        # versia=request.POST['versia']
         name_user=request.user
         letter=str(name_user) + ' Project changed from Maks'
         # email="ramazan.ayazbek.kz@gmail.com"
@@ -131,6 +131,8 @@ def update_post(request, id):
         message, 
         'settings.EMAIL_HOST_USER',
         [email])
+        # email
+
         version_number = post.versions.count() + 1
         post_version = Version(post=post,version_number=version_number, description=post.description)
         post_version.save()
@@ -145,6 +147,7 @@ def update_post(request, id):
     context = {
         'form': form,
         'versions': versions,
+        # 'versia_name':versia
     }
     return render(request, 'update_post.html', context)
 

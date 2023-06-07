@@ -1,0 +1,3 @@
+RSS хабарландыру функциясы бар веб негізделген жобаларды басқару жүйесін құру
+Разработка веб-системы управление проектами с функцией RSS-нотификации
+Development of a web-based project managment system with RSS notification function
